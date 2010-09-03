@@ -1,0 +1,49 @@
+<!--
+http://localhost:8080/sample-xfire/services/employeeService?wsdl
+http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd
+file:/D:/gitrepos/xfirestandalone-consumer/employeeService.wsdl#types?schema1
+-->
+<jxb:bindings version="2.0"
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<jxb:bindings>
+		<jxb:globalBindings generateElementProperty="false"/>  
+	</jxb:bindings>
+</jxb:bindings>
+
+
+<!-- from stackoverflow @ http://stackoverflow.com/questions/2177153/get-rid-of-jaxbelement-in-classes-generated-by-wsimport-called-from-ant
+<jxb:bindings version="2.0" 
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">  
+	
+	<jxb:globalBindings generateElementProperty="false"/>  
+</jxb:bindings>
+-->
+
+<!--
+<jxb:bindings jxb:version="2.0"
+	      xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	      xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+    <jxb:bindings>
+		<jxb:schemaBindings>
+		    <jxb:package name="com.berinle.xsd">
+		    </jxb:package>      
+		</jxb:schemaBindings>
+    </jxb:bindings>
+</jxb:bindings>
+-->
+
+<!--
+<jxb:bindings jxb:version="1.0"
+	      xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <jxb:bindings schemaLocation="employeeService.wsdl#types?schema1" node="/xsd:schema">
+	<jxb:schemaBindings>
+	    <jxb:package name="org.codehaus.xfire.echo.external">
+	    </jxb:package>      
+	</jxb:schemaBindings>
+    </jxb:bindings>
+</jxb:bindings>
+-->

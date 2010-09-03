@@ -1,0 +1,51 @@
+<project basedir="." default="gc">
+	<property name="src" value="src/main/java" />
+	<property name="resource" value="src/main/resources"/>
+	
+	<path id="run.cp">
+		<fileset dir="build/output/lib">
+			<include name="*.jar"/>
+			<exclude name="stax-api-1.0.1.jar"/>
+		</fileset>
+		<pathelement location="src/main/resources"/>
+	</path>
+	
+	<taskdef name="wsgen" classname="org.codehaus.xfire.gen.WsGenTask" 
+     classpathref="run.cp"/>
+
+	
+	<target name="gc" description="generate client stubs">
+		<!--
+		<wsgen outputDirectory="${basedir}/target/generated-source"
+  			wsdl="http://localhost:8080/sample-xfire/services/employeeService?wsdl" package="fake" overwrite="true"
+  			binding="xmlbeans"/>
+  			-->
+  		
+  		
+		<wsgen outputDirectory="${basedir}/target/generated-source"
+  			wsdl="http://localhost:8080/sample-xfire/services/employeeService?wsdl" package="fake" overwrite="true"
+  			externalBindings="custom.xjb"/>  		
+  			
+		<!--
+		<wsgen outputDirectory="${basedir}/target/generated-source"
+  			wsdl="http://localhost:8080/sample-xfire/services/employeeService?wsdl" package="fake" overwrite="true"/>
+  			-->
+  		
+  		<!--	
+  		<java classname="org.codehaus.xfire.gen.WsGen" fork="true"
+  			classpathref="run.cp">
+  			
+  			<arg line="-externalBindings custom.xjb"/>  			
+  			<arg value="-wsdl"/>
+  			<arg value="http://localhost:8080/sample-xfire/services/employeeService?wsdl"/>
+  			<arg value="-o"/>
+  			<arg value="target/generated-source"/>
+  			<arg value="-p"/>
+  			<arg value="gradletest.xfire"/>
+  			<arg value="-overwrite"/>
+  			<arg value="true"/>
+  			
+  		</java>
+  		-->
+	</target>
+</project>

@@ -1,0 +1,8 @@
+Standalone client to consume a web service via xfire
+
+** Still have got figure out error with using custom bindings
+gc:
+    [wsgen] Sep 3, 2010 4:11:11 PM org.codehaus.xfire.gen.Wsdl11Generator generate
+    [wsgen] INFO: Generating code for WSDL at http://localhost:8080/sample-xfire/services/employeeService?wsdl with a base URI of http://localhost:8080/sample-xfire/services/employeeService?wsdl
+    [wsgen] Sep 3, 2010 4:11:11 PM org.codehaus.xfire.gen.jaxb.ErrorReceiverImpl error
+    [wsgen] SEVERE: The "jxb:globalBindings" customization is not associated with any schema element. at 10,56 in file:/D:/gitrepos/xfirestandalone-consumer/custom.xjb

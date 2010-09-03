@@ -1,0 +1,55 @@
+
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <globalBindings generateElementProperty="false">
+  
+  	<javaType name="java.util.Calendar" xmlType="xs:dateTime"
+      parseMethod="javax.xml.bind.DatatypeConverter.parseDate"
+      printMethod="javax.xml.bind.DatatypeConverter.printDate"
+    />
+    
+  	<!-- using java.util.Date
+    <javaType name="java.util.Date" xmlType="xs:dateTime"
+      parseMethod="gov.fcc.wrv.util.DateAdapter.parseDate"
+      printMethod="gov.fcc.wrv.util.DateAdapter.printDate"
+    />
+    -->
+  </globalBindings>
+</bindings>
+
+
+<!--
+<jxb:bindings version="2.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">  
+	<jxb:globalBindings generateElementProperty="false">
+		<jxb:javaType name="java.util.Date" xmlType="xs:dateTime"
+			parseMethod="gov.fcc.wrv.util.DateAdapter.parseDate"
+			printMethod="gov.fcc.wrv.util.DateAdapter.printDate"/>
+		/>
+	</jxb:globalBindings>  
+</jxb:bindings>
+-->
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb"
+                xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+                xsi:schemaLocation="
+http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+    version="2.1">
+    <schemaBindings>
+        <package name="foo" />
+    </schemaBindings>
+</bindings>
+-->
+
+<!--
+<jxb:bindings jxb:version="2.0"
+	      xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <jxb:bindings>
+		<jxb:schemaBindings>
+		    <jxb:package name="com.berinle.xsd">
+		    </jxb:package>      
+		</jxb:schemaBindings>
+    </jxb:bindings>
+</jxb:bindings>
+-->

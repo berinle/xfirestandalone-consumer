@@ -1,0 +1,80 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = 1.0
+
+repositories {
+	mavenCentral()
+	flatDir(dirs: "$projectDir/lib")	
+}
+
+dependencies {
+	compile ('org.codehaus.xfire:xfire-jaxws:1.2.6'){
+		exclude module: 'XmlSchema'
+		exclude module: 'spring'
+	}	
+	compile 'org.apache.ws.commons:XmlSchema:1.0.3@jar'
+	compile 'javax.xml.stream:stax-api:1.0-2@jar'
+}
+
+
+task initProject(description: 'Initialize project directory structure.') << {
+  	sourceSets.all*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets.all*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+task copyJars (dependsOn: configurations.runtime.buildArtifacts, type: Copy){
+	into('build/output/lib')
+	from configurations.runtime
+	from configurations.runtime.allArtifacts*.file
+}
+
+task listJars << {
+	configurations.runtime.each { File f -> println f.name }
+}
+
+
+task runClient(dependsOn: 'build') << {
+	def runCp = ant.path {
+		fileset(dir: 'd:/gitrepos/xfirestandalone-consumer/build/output/lib', includes: '*.jar')
+		fileset(dir: 'build/classes/main', includes: '**/*.class')
+	}
+	
+	println runCp
+	
+	ant.java(classname: 'client.Consumer', fork:true,
+		classpath: runCp)
+	{
+		
+	}
+}
+
+task run (dependsOn: 'build') << {
+	ant.java(classname: 'client.Consumer', fork:false, classpath: "${sourceSets.main.runtimeClasspath.asPath}")
+}
+
+
+task generateClient(description: 'Generates the web service client code') << {
+	
+	/*def path = ant.path {
+		fileset(dir: 'C:/devtools/webservice/apache-cxf-2.2.9/lib', includes: '*.jar')
+	}*/
+	
+	ant.java(classname: 'org.codehaus.xfire.gen.WsGen', fork: true,
+		classpath: "${sourceSets.main.runtimeClasspath.asPath}")
+	//ant.java(classname: 'org.apache.cxf.tools.wsdlto.WSDLToJava', fork: true,
+	//	classpath: path)		
+	{
+		arg(value: '-wsdl')
+		arg(value: 'http://localhost:8080/sample-xfire/services/employeeService?wsdl')	
+		arg(value: '-o')
+		arg(value: 'src/main/java')		
+		arg(value: '-p')
+		arg(value: 'gradletest.xfire')
+		arg(value: '-overwrite')
+		arg(value: true)
+		arg(value: '-externalBindings')
+		arg(value: 'custom.xjb')
+	}
+}
