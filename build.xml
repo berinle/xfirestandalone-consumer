@@ -6,6 +6,8 @@
 		<fileset dir="build/output/lib">
 			<include name="*.jar"/>
 			<exclude name="stax-api-1.0.1.jar"/>
+			<exclude name="jaxb-xjc-2.0.1.jar"/>
+			<exclude name="jaxb-impl-2.0.1.jar"/>			
 		</fileset>
 		<pathelement location="src/main/resources"/>
 	</path>
