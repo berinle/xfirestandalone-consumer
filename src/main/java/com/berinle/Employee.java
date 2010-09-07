@@ -1,12 +1,14 @@
 
 package com.berinle;
 
-import javax.xml.bind.JAXBElement;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter1;
 
 
 /**
@@ -20,6 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="dob" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="dobAsString" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="employeeNo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -35,6 +38,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Employee", propOrder = {
     "dob",
+    "dobAsString",
     "employeeNo",
     "firstName",
     "lastName",
@@ -42,25 +46,30 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class Employee {
 
-    protected XMLGregorianCalendar dob;
-    @XmlElementRef(name = "employeeNo", namespace = "http://berinle.com", type = JAXBElement.class)
-    protected JAXBElement<String> employeeNo;
-    @XmlElementRef(name = "firstName", namespace = "http://berinle.com", type = JAXBElement.class)
-    protected JAXBElement<String> firstName;
-    @XmlElementRef(name = "lastName", namespace = "http://berinle.com", type = JAXBElement.class)
-    protected JAXBElement<String> lastName;
-    @XmlElementRef(name = "userName", namespace = "http://berinle.com", type = JAXBElement.class)
-    protected JAXBElement<String> userName;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "dateTime")
+    protected Date dob;
+    @XmlElement(nillable = true)
+    protected String dobAsString;
+    @XmlElement(nillable = true)
+    protected String employeeNo;
+    @XmlElement(nillable = true)
+    protected String firstName;
+    @XmlElement(nillable = true)
+    protected String lastName;
+    @XmlElement(nillable = true)
+    protected String userName;
 
     /**
      * Gets the value of the dob property.
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDob() {
+    public Date getDob() {
         return dob;
     }
 
@@ -69,11 +78,35 @@ public class Employee {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDob(XMLGregorianCalendar value) {
+    public void setDob(Date value) {
         this.dob = value;
+    }
+
+    /**
+     * Gets the value of the dobAsString property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDobAsString() {
+        return dobAsString;
+    }
+
+    /**
+     * Sets the value of the dobAsString property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDobAsString(String value) {
+        this.dobAsString = value;
     }
 
     /**
@@ -81,10 +114,10 @@ public class Employee {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getEmployeeNo() {
+    public String getEmployeeNo() {
         return employeeNo;
     }
 
@@ -93,11 +126,11 @@ public class Employee {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setEmployeeNo(JAXBElement<String> value) {
-        this.employeeNo = ((JAXBElement<String> ) value);
+    public void setEmployeeNo(String value) {
+        this.employeeNo = value;
     }
 
     /**
@@ -105,10 +138,10 @@ public class Employee {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -117,11 +150,11 @@ public class Employee {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setFirstName(JAXBElement<String> value) {
-        this.firstName = ((JAXBElement<String> ) value);
+    public void setFirstName(String value) {
+        this.firstName = value;
     }
 
     /**
@@ -129,10 +162,10 @@ public class Employee {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -141,11 +174,11 @@ public class Employee {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setLastName(JAXBElement<String> value) {
-        this.lastName = ((JAXBElement<String> ) value);
+    public void setLastName(String value) {
+        this.lastName = value;
     }
 
     /**
@@ -153,10 +186,10 @@ public class Employee {
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getUserName() {
+    public String getUserName() {
         return userName;
     }
 
@@ -165,11 +198,11 @@ public class Employee {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setUserName(JAXBElement<String> value) {
-        this.userName = ((JAXBElement<String> ) value);
+    public void setUserName(String value) {
+        this.userName = value;
     }
 
 }

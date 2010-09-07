@@ -8,9 +8,15 @@ file:/D:/gitrepos/xfirestandalone-consumer/employeeService.wsdl#types?schema1
   xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<jxb:bindings>
 		<jxb:globalBindings generateElementProperty="false"> 
+			<jxb:javaType name="java.util.Date" xmlType="xs:dateTime"
+		      parseMethod="com.berinle.adapter.CustomAdapter.parseDate"
+		      printMethod="com.berinle.adapter.CustomAdapter.printDate"/>
+		      
+			<!--
 			<jxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
 		      parseMethod="javax.xml.bind.DatatypeConverter.parseDate"
 		      printMethod="javax.xml.bind.DatatypeConverter.printDate"/>		 
+	      -->
     	</jxb:globalBindings>
 	</jxb:bindings>
 </jxb:bindings>

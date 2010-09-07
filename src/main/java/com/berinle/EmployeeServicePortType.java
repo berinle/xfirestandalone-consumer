@@ -1,11 +1,10 @@
 
-package gradletest.xfire;
+package com.berinle;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import com.berinle.Employee;
 
 @WebService(name = "EmployeeServicePortType", targetNamespace = "http://berinle.com")
 @SOAPBinding(use = SOAPBinding.Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)

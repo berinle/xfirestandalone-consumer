@@ -17,16 +17,17 @@
 
 	
 	<target name="gc" description="generate client stubs">
-		<!--
+		
+		<wsgen outputDirectory="${basedir}/src/main/java"
+  			wsdl="http://localhost:8080/sample-xfire/services/employeeService?wsdl" package="com.berinle" overwrite="true"
+  			externalBindings="custom.xjb"/>
+  			
+  		
+  		<!--
 		<wsgen outputDirectory="${basedir}/target/generated-source"
   			wsdl="http://localhost:8080/sample-xfire/services/employeeService?wsdl" package="fake" overwrite="true"
-  			binding="xmlbeans"/>
-  			-->
-  		
-  		
-		<wsgen outputDirectory="${basedir}/target/generated-source"
-  			wsdl="http://localhost:8080/sample-xfire/services/employeeService?wsdl" package="fake" overwrite="true"
-  			externalBindings="custom.xjb"/>  		
+  			externalBindings="custom.xjb"/>
+  			-->  		
   			
 		<!--
 		<wsgen outputDirectory="${basedir}/target/generated-source"

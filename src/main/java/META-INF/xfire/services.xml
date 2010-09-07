@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://xfire.codehaus.org/config/1.0">
   <service>
-    <serviceClass>gradletest.xfire.EmployeeServiceImpl</serviceClass>
+    <serviceClass>com.berinle.EmployeeServiceImpl</serviceClass>
     <wsdlURL>http://localhost:8080/sample-xfire/services/employeeService?wsdl</wsdlURL>
     <serviceFactory>org.codehaus.xfire.jaxb2.JaxbServiceFactory</serviceFactory>
   </service>

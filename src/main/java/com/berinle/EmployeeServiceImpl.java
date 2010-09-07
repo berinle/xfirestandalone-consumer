@@ -1,10 +1,9 @@
 
-package gradletest.xfire;
+package com.berinle;
 
 import javax.jws.WebService;
-import com.berinle.Employee;
 
-@WebService(serviceName = "EmployeeService", targetNamespace = "http://berinle.com", endpointInterface = "gradletest.xfire.EmployeeServicePortType")
+@WebService(serviceName = "EmployeeService", targetNamespace = "http://berinle.com", endpointInterface = "com.berinle.EmployeeServicePortType")
 public class EmployeeServiceImpl
     implements EmployeeServicePortType
 {

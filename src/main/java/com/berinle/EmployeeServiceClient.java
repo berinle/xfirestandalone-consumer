@@ -1,5 +1,5 @@
 
-package gradletest.xfire;
+package com.berinle;
 
 import java.net.MalformedURLException;
 import java.util.Collection;
@@ -56,7 +56,7 @@ public class EmployeeServiceClient {
         props.put("annotations.allow.interface", true);
         AnnotationServiceFactory asf = new AnnotationServiceFactory(new Jsr181WebAnnotations(), tm, new AegisBindingProvider(new JaxbTypeRegistry()));
         asf.setBindingCreationEnabled(false);
-        service0 = asf.create((gradletest.xfire.EmployeeServicePortType.class), props);
+        service0 = asf.create((com.berinle.EmployeeServicePortType.class), props);
         {
             AbstractSoapBinding soapBinding = asf.createSoap11Binding(service0, new QName("http://berinle.com", "EmployeeServicePortTypeLocalBinding"), "urn:xfire:transport:local");
         }
